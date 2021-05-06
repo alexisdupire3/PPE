@@ -1,0 +1,339 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+<!-- Begin Page Content -->
+<div
+	class="container-fluid">
+
+	<!-- Page Heading -->
+
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Accueil</h1>
+	</div>
+
+    {% for role in user.roles %}
+	{% if role == "ROLE_MALADE" %}
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total rendez-vous confirmé</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ rdvconfirme|length }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Total rendez-vous en attente</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ rdvdemande|length }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-7">
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+                                <!-- Page Heading -->
+                                <p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre la documentation technique</a>.</p>
+
+                                <div class="row">
+                                    <a href="/rdv" class="col-lg-6 mb-4">
+                                        <div class="card bg-primary text-white shadow">
+                                            <div class="card-body">
+                                                Consultation de rendez-vous
+                                                <div class="text-white-50 small">Ici vous pourrez voir votre liste de rendez-vous.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/rdv/selectmedecin" class="col-lg-6 mb-4">
+                                        <div class="card bg-secondary text-white shadow">
+                                            <div class="card-body">
+                                                Demande de rendez-vous
+                                                <div class="text-white-50 small">Vous pouvez dans cet onglet choisir un rendez vous avec un medecin.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+
+                            </div>
+                            <!-- /.container-fluid -->
+                        </div>
+        </tbody>
+	{% endif %}
+{% endfor %}
+
+	{% for role in user.roles %}
+		{% if role == "ROLE_SECRETAIRE" %}
+			<div class="row">
+
+			<!-- Earnings (Monthly) Card Example -->
+			
+		</div>
+
+		<!-- Content Row -->
+
+		<div class="row">
+			
+
+			<!-- Area Chart -->
+			<div
+				class="col-xl-12 col-lg-7">
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+				<!-- Area Chart -->
+				<div
+					class="col-xl-12 col-lg-7">
+					<!-- Begin Page Content -->
+					<div class="container-fluid">
+						{% for role in user.roles %}
+							{% if role != "ROLE_INFIRMIER" %}
+								<!-- Page Heading -->
+								<p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre la documentation technique.</p>
+
+						<div class="row">
+
+							<a href="/rdv/listmodif" class="col-lg-6 mb-4">
+								<div class="card bg-info text-white shadow">
+									<div class="card-body">
+										Panel gestion rendez-vous
+										<div class="text-white-50 small">C'est ici que gére la liste des rendez-vous.</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					{% endif %}
+				{% endfor %}
+				<!-- DataTales Example -->
+
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+	{% else %}
+
+{% for role in user.roles %}
+	{% if role != "ROLE_INFIRMIER" and role != "ROLE_MALADE" %}
+		<!-- Content Row -->
+		<div class="row">
+
+			<!-- Earnings (Monthly) Card Example -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-primary shadow h-100 py-2">
+					<div class="card-body">
+						<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+								<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+									Total chambres</div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800">{{ chambres|length }}</div>
+							</div>
+							<div class="col-auto">
+								<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Earnings (Monthly) Card Example -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-success shadow h-100 py-2">
+					<div class="card-body">
+						<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+								<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+									Total lits</div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800">{{ lits|length }}</div>
+							</div>
+							<div class="col-auto">
+								<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Earnings (Monthly) Card Example -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-info shadow h-100 py-2">
+					<div class="card-body">
+						<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+								<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total séjour
+								</div>
+								<div class="row no-gutters align-items-center">
+									<div class="col-auto">
+										<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ sejours|length }}</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-auto">
+								<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Pending Requests Card Example -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-warning shadow h-100 py-2">
+					<div class="card-body">
+						<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+								<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+									Total patients</div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800">{{ patients|length }}</div>
+							</div>
+							<div class="col-auto">
+								<i class="fas fa-comments fa-2x text-gray-300"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Content Row -->
+
+		<div
+			class="row">
+
+			<!-- Area Chart -->
+			<div
+				class="col-xl-12 col-lg-7">
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+							<!-- Page Heading -->
+							<p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre la documentation technique</p>
+						</a>.</p>
+
+					<div class="row">
+						<a href="/lit" class="col-lg-6 mb-4">
+							<div class="card bg-primary text-white shadow">
+								<div class="card-body">
+									Panel gestion lits
+									<div class="text-white-50 small">Ici vous pourrez ajouter et supprimer facilement des lits.</div>
+								</div>
+							</div>
+						</a>
+						<a href="/chambre" class="col-lg-6 mb-4">
+							<div class="card bg-secondary text-white shadow">
+								<div class="card-body">
+									Panel gestion chambre
+									<div class="text-white-50 small">Comme pour les lits, ici vous pourrez gérer les différentes chambres.</div>
+								</div>
+							</div>
+						</a>
+						<a href="/patient" class="col-lg-6 mb-4">
+							<div class="card bg-info text-white shadow">
+								<div class="card-body">
+									Panel gestion patient
+									<div class="text-white-50 small">C'est ici que l'on édit les patients ou que on les supprimes.</div>
+								</div>
+							</div>
+						</a>
+						{% for role in user.roles %}
+							{% if role == "ROLE_ADMIN" %}
+								<a href="/user" class="col-lg-6 mb-4">
+									<div class="card bg-danger text-white shadow">
+										<div class="card-body">
+											Panel gestion utilisateurs
+											<div class="text-white-50 small">Ici vous pourrez gérer les différents utilisateurs de l'application.</div>
+										</div>
+									</div>
+								</a>
+							{% endif %}
+						{% endfor %}
+					</div>
+
+                    <div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Liste des séjours
+						{% for role in user.roles %}
+							{% if role != "ROLE_INFIRMIER" %}|
+								<a href="{{ path('sejour_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+									<i class="fas fa-download fa-sm text-white-50"></i>
+									Ajouter un séjour</a>
+							{% endif %}
+						{% endfor %}
+					</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Numéro de séjour</th>
+									<th>Nom du patient</th>
+									<th>Prenom du patient</th>
+									<th>Telephone du patient</th>
+									<th>Numéro de lit</th>
+									<th>Date d'arrivé</th>
+									<th>Date de sortie</th>
+									<th>Etat</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for sejour in sejours %}
+									<tr>
+										<td>{{ sejour.id }}</td>
+										<td>{{ sejour.idPatient.nom }}</td>
+										<td>{{ sejour.idPatient.prenom }}</td>
+										<td>{{ sejour.idPatient.telephone }}</td>
+										<td>{{ sejour.numeroLit }}</td>
+										<td>{{ sejour.dateArrive|date('d-m-Y H:i:s') }}</td>
+										{% if sejour.dateSortie != null %}
+											<td>{{ sejour.dateSortie|date('d-m-Y H:i:s') }}</td>
+										{% else %}
+											<td>Dans l'hopital</td>
+										{% endif %}
+										<td>
+											<a href="{{ path('sejour_edit', {'id': sejour.id}) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Editer</a>
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+				{% endif %}
+			{% endfor %}
+			<!-- DataTales Example -->
+
+		</div>
+		<!-- /.container-fluid -->
+	</div>
+{% endif %}{% endfor %}</div><!-- /.container-fluid -->{% include 'footer.html.twig' %}{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Sejour{% endblock %}
+
+{% block body %}
+    <div class="card mb-4">
+        <div class="card-header">
+            Créer un nouveau séjour
+        </div>
+        <div class="card-body">
+            {{ include('sejour/_form.html.twig') }}
+            <a href="{{ path('accueil') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

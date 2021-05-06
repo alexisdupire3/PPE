@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891304437456",
+    "project_id": "ppe-android-vaccin",
+    "storage_bucket": "ppe-android-vaccin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891304437456:android:cd7ca6d897eb9da2d5e0d5",
+        "android_client_info": {
+          "package_name": "com.example.ppevaccin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891304437456-b8242jndt681rma8mi8e3ocmima54lc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkxFtAVQPNQy-Rp7DBxpaOrxqTS26pUOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891304437456-b8242jndt681rma8mi8e3ocmima54lc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

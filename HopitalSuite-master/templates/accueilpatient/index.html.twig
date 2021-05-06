@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Patient{% endblock %}
+
+{% block body %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Accueil Patient</h1>
+                    </div>
+
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total rendez-vous confirmé</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ rdvconfirme|length }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Total rendez-vous en attente</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ rdvdemande|length }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-7">
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+                                <!-- Page Heading -->
+                                <p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre la documentation technique</a>.</p>
+
+                                <div class="row">
+                                    <a href="/rdv" class="col-lg-6 mb-4">
+                                        <div class="card bg-primary text-white shadow">
+                                            <div class="card-body">
+                                                Consultation de rendez-vous
+                                                <div class="text-white-50 small">Ici vous pourrez voir votre liste de rendez-vous.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="/rdv/selectmedecin" class="col-lg-6 mb-4">
+                                        <div class="card bg-secondary text-white shadow">
+                                            <div class="card-body">
+                                                Demande de rendez-vous
+                                                <div class="text-white-50 small">Vous pouvez dans cet onglet choisir un rendez vous avec un medecin.</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+
+                            </div>
+                            <!-- /.container-fluid -->
+                        </div>
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+                    {% include 'footer.html.twig' %}
+{% endblock %}

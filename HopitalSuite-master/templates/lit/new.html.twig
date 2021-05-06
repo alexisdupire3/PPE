@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lit{% endblock %}
+
+{% block body %}
+    <div class="card mb-4">
+        <div class="card-header">
+            Créer un nouveau lit
+        </div>
+        <div class="card-body">
+            {{ include('lit/_form.html.twig') }}
+            <a href="{{ path('lit_index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

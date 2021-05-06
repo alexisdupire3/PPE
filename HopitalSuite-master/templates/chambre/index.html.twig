@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre index{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Panel chambres</h1>
+            <a href="{{ path('chambre_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Créer une nouvelle chambre</a>
+        </div>
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre <a target="_blank"
+                                                                                                                                                                                             href="https://datatables.net">la documentation technique</a>.</p>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Liste des chambres</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Numero de chambre</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for chambre in chambres %}
+                                        <tr>
+                                            <td>{{ chambre.numChambre }}</td>
+                                            <td>
+                                                <a href="{{ path('chambre_show', {'id': chambre.id}) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">show</a>
+                                                <a href="{{ path('chambre_edit', {'id': chambre.id}) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">edit</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="3">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    {% include 'footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient rdv
+{% endblock %}
+
+{% block body %}
+	<div
+		class="container-fluid">
+
+		<!-- Page Heading -->
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+			<h1 class="h3 mb-0 text-gray-800">Panel rendez-vous</h1>
+			<a href="{{ path('rdv_selectmedecin') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+				<i class="fas fa-download fa-sm text-white-50"></i>
+				Prendre un nouveau rendez-vous</a>
+		</div>
+
+		<div
+			class="row">
+
+			<!-- Area Chart -->
+			<div
+				class="col-xl-12 col-lg-7">
+				<!-- Begin Page Content -->
+				<div
+					class="container-fluid">
+
+					<!-- Page Heading -->
+					<p class="mb-4">Bienvenue dans l'interface de gestion des rendez-vous de l'Hopital de Lille. Vous pourrez ici gerer simplement votre rendez-vous. Vous pouvez suivre
+						<a target="_blank" href="https://datatables.net">la documentation technique</a>.</p>
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Liste des medecins</h6>
+						</div>
+						<div class="card-body">
+                        <center>
+							<div class="table-responsive">
+								<h4>Selectionner un medecin</h4>
+								<select name="pets" id="pet-select">
+                                {% for medecins in medecin %}
+                                {% set breack = false %}
+                                {% for role in medecins.roles %}
+                                {% if breack == false %}
+                                {% if role == "ROLE_MEDECIN" %}
+                                    {% set breack = true %}
+									<option onclick="document.location='/rdv/new/{{medecins.id}}'" value={{medecins.id}}>{{medecins.nom}} {{medecins.prenom}}</option>
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+								</select>
+							</div>
+                        </center>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	{% include 'footer.html.twig' %}
+{% endblock %}
